@@ -1,5 +1,4 @@
 package com.example.bookmyshow.Models;
-
 import com.example.bookmyshow.Enums.Genre;
 import com.example.bookmyshow.Enums.Language;
 import jakarta.persistence.*;
