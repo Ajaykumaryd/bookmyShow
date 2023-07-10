@@ -2,12 +2,10 @@ package com.example.bookmyshow.Controllers;
 
 
 import com.example.bookmyshow.DTOs.RequestDto.AddUserDto;
+import com.example.bookmyshow.DTOs.ResponseDto.UserResponseDto;
 import com.example.bookmyshow.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,10 +17,36 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    public String adduser(@RequestBody AddUserDto user){
 
-    String result=userService.add(user);
-    return result;
+
+    @PostMapping("/add")
+    public String adduser(@RequestBody AddUserDto user) {
+        try {
+            String result = userService.add(user);
+            return result;
+        } catch (Exception e) {
+            return e.getMessage();
+        }
+    }
+
+    //Get oldest User Object by age
+    @GetMapping("/getOlderUser")
+    public UserResponseDto getOldest(){
+
+     try{
+         UserResponseDto userResponseDto= userService.getoldest();
+         userResponseDto.setStatusCode("200");
+         userResponseDto.setStatusMessage("SUCCESS");
+         return userResponseDto;
+
+     }catch (Exception e){
+         UserResponseDto responseDto = new UserResponseDto();
+         responseDto.setStatusCode("500");
+         responseDto.setStatusMessage("Failure");
+         return responseDto;
+     }
+
+
     }
 
 
@@ -34,9 +58,6 @@ public class UserController {
 
 
 
-
-
-
-
-
 }
+
+
