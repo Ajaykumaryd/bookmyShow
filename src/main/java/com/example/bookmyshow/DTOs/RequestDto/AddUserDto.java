@@ -8,6 +8,6 @@ public class AddUserDto {
     private String name;
     private Integer age;
     private String mobNo;
-    private String emailId;
+    private String email;
 
 }

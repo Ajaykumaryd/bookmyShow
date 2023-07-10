@@ -3,6 +3,7 @@ package com.example.bookmyshow.Controllers;
 
 import com.example.bookmyshow.DTOs.RequestDto.AddUserDto;
 import com.example.bookmyshow.DTOs.ResponseDto.UserResponseDto;
+import com.example.bookmyshow.Models.User;
 import com.example.bookmyshow.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -48,6 +49,13 @@ public class UserController {
 
 
     }
+    @GetMapping("/findUsersGreaterThanAAge")
+    public List<User> getAllUsers(@RequestParam("age") Integer age){
+        return userService.getAllUserGreaterThan(age);
+    }
+
+
+    }
 
 
 
@@ -58,6 +66,6 @@ public class UserController {
 
 
 
-}
+
 
 
