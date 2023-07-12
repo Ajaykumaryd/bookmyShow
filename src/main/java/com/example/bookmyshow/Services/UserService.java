@@ -18,6 +18,8 @@ public class UserService {
     UserRepository userRepository;
 
     public String add(AddUserDto user) {
+
+        User user1=new User();
         User useNew= UserTransformer.convertDtoToEntity(user);
         userRepository.save(useNew);
         return "User Saved Successfully";

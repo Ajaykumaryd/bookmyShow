@@ -4,7 +4,9 @@ import com.example.bookmyshow.Enums.Language;
 import jakarta.persistence.*;
 import lombok.Builder;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Builder
@@ -31,5 +33,9 @@ public class Movie {
 
     @Enumerated(EnumType.STRING)
     private Language language;
+
+    @OneToMany(mappedBy = "movie",cascade = CascadeType.ALL)
+    private List<Show> showList=new ArrayList<>();
+
 
 }
