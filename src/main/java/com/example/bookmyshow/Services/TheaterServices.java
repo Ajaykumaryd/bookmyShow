@@ -25,6 +25,7 @@ public class TheaterServices {
 //        theaterRepository.save(theater);
         //Entity that saves into the db
         //Convert the entryDto --> Entity and then save it
+
         Theater theater = TheaterTransformers.convertDtoToEntity(theaterEntryDto);
         theaterRepository.save(theater);
         return "theater added";
@@ -47,17 +48,15 @@ public class TheaterServices {
 
         //this is done for the classic seats
         for(int count = 1;count<=noOfClassicSeats;count++){
-
             String seatNo = counter+"";
             seatNo = seatNo + ch;
-
             ch++;
-
             if((ch-'A')==columns){
                 ch = 'A';
                 counter++;
             }
 
+            //setting up child class attributes
             TheaterSeat theaterSeat = new TheaterSeat();
             theaterSeat.setSeatNo(seatNo);
             theaterSeat.setTheater(theater); //storing parent info in child
@@ -91,8 +90,6 @@ public class TheaterServices {
         //We just need to save the parent : theater Entity
         //child will automatically get saved bcz of bidirectional mapping
         theaterRepository.save(theater);
-
-
         return "Theater Seats have been successfully added";
     }
 }
