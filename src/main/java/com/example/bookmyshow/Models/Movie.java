@@ -2,15 +2,22 @@ package com.example.bookmyshow.Models;
 import com.example.bookmyshow.Enums.Genre;
 import com.example.bookmyshow.Enums.Language;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
 @Entity
+@Table(name = "movies")
+@Data
 @Builder
-@Table(name="movies")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Movie {
 
     @Id
