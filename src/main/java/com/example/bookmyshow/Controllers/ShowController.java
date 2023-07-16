@@ -1,6 +1,7 @@
 package com.example.bookmyshow.Controllers;
 
 import com.example.bookmyshow.DTOs.RequestDto.AddShowDto;
+import com.example.bookmyshow.DTOs.RequestDto.ShowSeatsDto;
 import com.example.bookmyshow.Repository.ShowRepository;
 import com.example.bookmyshow.Services.ShowService;
 import jakarta.persistence.Entity;
@@ -29,4 +30,16 @@ public class ShowController {
              return e.getMessage();
          }
      }
+
+     @PostMapping("/associate-seats")
+     public String associateSeats(@RequestBody ShowSeatsDto showSeatsDto){
+
+         try{
+             return showService.associateShowSeats(showSeatsDto);
+         }catch (Exception e){
+             return e.getMessage();
+         }
+
+     }
+
 }

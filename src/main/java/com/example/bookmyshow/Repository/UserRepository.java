@@ -11,4 +11,5 @@ public interface UserRepository extends JpaRepository<User,Integer> {
     @Query(value = "select * from users where age >= :value",nativeQuery = true)
     List<User> findUserWithAgeGreater (Integer value);
 
+
 }

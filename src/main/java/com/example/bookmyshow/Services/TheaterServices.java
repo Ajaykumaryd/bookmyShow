@@ -40,7 +40,6 @@ public class TheaterServices {
         String location=entryDto.getLocation();
 
         Theater theater = theaterRepository.findByLocation(location);
-
         List<TheaterSeat> theaterSeatList=theater.getTheaterSeatList();
 
         int counter = 1;

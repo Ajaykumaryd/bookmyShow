@@ -7,6 +7,7 @@ import java.util.Date;
 
 @Data
 public class AddShowDto {
+
     private LocalTime showStartTime;
 
     private Date showDate;

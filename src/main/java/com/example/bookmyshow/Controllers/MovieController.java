@@ -20,4 +20,6 @@ public class MovieController {
     public String addMovie(@RequestBody MovieEntryDto movieEntryDto){
         return movieService.addMovie(movieEntryDto);
     }
+
+
 }

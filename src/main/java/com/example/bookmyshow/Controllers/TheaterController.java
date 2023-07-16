@@ -13,10 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/theater")
 public class TheaterController {
 
-
     @Autowired
     TheaterServices theaterServices;
-
 
     @PostMapping("/add")
     public String addTheater(@RequestBody TheaterEntryDto theaterEntryDto){
