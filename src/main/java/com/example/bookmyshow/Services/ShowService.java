@@ -67,44 +67,29 @@ public class ShowService {
         if(!optionalShow.isPresent()){
             throw new ShowNotFound("Show Id incorrect!!");
         }
-
         //Valid Show Now
         Show show = optionalShow.get();
-
         //We need to theaterSeats
         Theater theater = show.getTheater();
-
         List<TheaterSeat> theaterSeatList = theater.getTheaterSeatList();
-
         List<ShowSeat> showSeatList = show.getShowSeatList();
-
         for(TheaterSeat theaterSeat : theaterSeatList){
-
             ShowSeat showSeat = new ShowSeat();
             showSeat.setSeatNo(theaterSeat.getSeatNo());
             showSeat.setSeatType(theaterSeat.getSeatType());
-
             if(showSeat.getSeatType().equals(SeatType.CLASSIC))
                 showSeat.setPrice(showSeatsDto.getPriceForClassicSeats());
             else
                 showSeat.setPrice(showSeatsDto.getPriceForPremiumSeats());
-
             //Foreign key mapping
             showSeat.setShow(show);
             showSeat.setAvailable(true);
             showSeat.setFoodAttached(false);
-
-
             showSeatList.add(showSeat);
         }
-
         showRepository.save(show);
         //Child will automatically get saved.....
-
         return "Show seats has been successfully added";
-
-
-
 
     }
 }
