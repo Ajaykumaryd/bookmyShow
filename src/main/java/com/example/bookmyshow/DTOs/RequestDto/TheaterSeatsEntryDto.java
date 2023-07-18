@@ -9,4 +9,5 @@ public class TheaterSeatsEntryDto {
     private int nofOfClassicSeats;
     private int noOfPremiumSeats;
     private String location;
+
 }

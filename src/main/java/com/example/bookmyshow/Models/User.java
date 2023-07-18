@@ -6,6 +6,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Data
 @Table(name="users")
@@ -26,7 +29,8 @@ public class User {
 
     private String email;
 
-
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    List<Ticket> ticketList = new ArrayList<>();
 
 
 }

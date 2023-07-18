@@ -16,18 +16,18 @@ public class ShowSeat {
 
       private String seatNo;
 
-    @Enumerated(value = EnumType.STRING)
-    private SeatType seatType;
+      @Enumerated(value = EnumType.STRING)
+      private SeatType seatType;
 
-    private int price;
+      private int price;
 
-    private boolean isAvailable;
+      private boolean isAvailable;
 
-    private boolean isFoodAttached;
+      private boolean isFoodAttached;
 
-    @ManyToOne
-    @JoinColumn
-    private Show show;
+      @ManyToOne
+      @JoinColumn
+      private Show show;
 
 
 }

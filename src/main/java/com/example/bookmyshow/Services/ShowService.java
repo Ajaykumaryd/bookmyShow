@@ -37,9 +37,7 @@ public class ShowService {
         if(optionalMovie.isEmpty()){
            throw new MovieNotFound("Movie not found");
         }
-
         Optional<Theater> theaterOptional = theaterRepository.findById(addShowDto.getTheaterId());
-
         if(!theaterOptional.isPresent()){
             throw new TheaterNotFound("Theater is not found");
         }
@@ -52,6 +50,7 @@ public class ShowService {
         show.setTheater(theater);
         show = showRepository.save(show);
 
+
         movie.getShowList().add(show);
         movieRepository.save(movie);
 
@@ -62,7 +61,6 @@ public class ShowService {
     public String associateShowSeats(ShowSeatsDto showSeatsDto) throws ShowNotFound {
 
         Optional<Show> optionalShow = showRepository.findById(showSeatsDto.getShowId());
-
         //Validation check
         if(!optionalShow.isPresent()){
             throw new ShowNotFound("Show Id incorrect!!");
@@ -77,6 +75,7 @@ public class ShowService {
             ShowSeat showSeat = new ShowSeat();
             showSeat.setSeatNo(theaterSeat.getSeatNo());
             showSeat.setSeatType(theaterSeat.getSeatType());
+
             if(showSeat.getSeatType().equals(SeatType.CLASSIC))
                 showSeat.setPrice(showSeatsDto.getPriceForClassicSeats());
             else
@@ -90,6 +89,5 @@ public class ShowService {
         showRepository.save(show);
         //Child will automatically get saved.....
         return "Show seats has been successfully added";
-
     }
 }

@@ -20,7 +20,6 @@ import java.util.List;
 @AllArgsConstructor
 public class Show {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -40,6 +39,7 @@ public class Show {
     @OneToMany(mappedBy = "show",cascade = CascadeType.ALL)
     private List<ShowSeat> showSeatList = new ArrayList<>();
 
-
+    @OneToMany(mappedBy = "show",cascade =CascadeType.ALL)
+    private List<Ticket> ticketList = new ArrayList<>();
 
 }
