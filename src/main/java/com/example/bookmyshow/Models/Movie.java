@@ -1,4 +1,5 @@
 package com.example.bookmyshow.Models;
+
 import com.example.bookmyshow.Enums.Genre;
 import com.example.bookmyshow.Enums.Language;
 import jakarta.persistence.*;
@@ -11,7 +12,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
 @Entity
 @Table(name = "movies")
 @Data
@@ -19,7 +19,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Movie {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -41,7 +40,5 @@ public class Movie {
     private Language language;
 
     @OneToMany(mappedBy = "movie",cascade = CascadeType.ALL)
-    private List<Show> showList=new ArrayList<>();
-
-
+    private List<Show> showList = new ArrayList<>();
 }

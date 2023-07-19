@@ -1,6 +1,6 @@
 package com.example.bookmyshow.Controllers;
 
-import com.example.bookmyshow.DTOs.RequestDto.MovieEntryDto;
+import com.example.bookmyshow.Dtos.RequestDto.MovieEntryDto;
 import com.example.bookmyshow.Services.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,12 +14,9 @@ public class MovieController {
     @Autowired
     MovieService movieService;
 
-
-
     @PostMapping("/add")
     public String addMovie(@RequestBody MovieEntryDto movieEntryDto){
+
         return movieService.addMovie(movieEntryDto);
     }
-
-
 }

@@ -1,6 +1,5 @@
 package com.example.bookmyshow.Models;
 
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,13 +15,12 @@ import java.util.List;
 @Table(name="shows")
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class Show {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private int id;
 
     private LocalTime time;
 
@@ -39,7 +37,6 @@ public class Show {
     @OneToMany(mappedBy = "show",cascade = CascadeType.ALL)
     private List<ShowSeat> showSeatList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "show",cascade =CascadeType.ALL)
+    @OneToMany(mappedBy = "show",cascade = CascadeType.ALL)
     private List<Ticket> ticketList = new ArrayList<>();
-
 }

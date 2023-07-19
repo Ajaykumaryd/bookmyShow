@@ -1,15 +1,11 @@
-package com.example.bookmyshow.DTOs.RequestDto;
-
+package com.example.bookmyshow.Dtos.RequestDto;
 
 import lombok.Data;
 
 @Data
 public class AddUserDto {
-
     private String name;
     private Integer age;
     private String mobNo;
-    private String email;
-
-
+    private String emailId;
 }

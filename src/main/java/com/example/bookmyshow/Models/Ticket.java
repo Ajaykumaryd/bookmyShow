@@ -1,14 +1,16 @@
 package com.example.bookmyshow.Models;
 
+
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
+import java.util.Date;
+
 @Entity
-@Table(name="tickets")
+@Table(name = "tickets")
 @Data
 public class Ticket {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -18,14 +20,15 @@ public class Ticket {
     private String bookedSeats;
 
     @CreationTimestamp
-    private Data bookedAt;
+    private Date bookedAt;
+
 
     @ManyToOne
     @JoinColumn
     private Show show;
 
+
     @ManyToOne
     @JoinColumn
     private User user;
-
 }

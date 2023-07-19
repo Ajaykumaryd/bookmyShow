@@ -10,11 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Data
 @Table(name="users")
+@Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 public class User {
 
     @Id
@@ -30,7 +30,6 @@ public class User {
     private String email;
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
-    List<Ticket> ticketList = new ArrayList<>();
-
+    private List<Ticket> ticketList = new ArrayList<>();
 
 }

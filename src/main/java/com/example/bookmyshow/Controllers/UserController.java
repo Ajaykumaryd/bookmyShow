@@ -1,8 +1,7 @@
 package com.example.bookmyshow.Controllers;
 
-
-import com.example.bookmyshow.DTOs.RequestDto.AddUserDto;
-import com.example.bookmyshow.DTOs.ResponseDto.UserResponseDto;
+import com.example.bookmyshow.Dtos.RequestDto.AddUserDto;
+import com.example.bookmyshow.Dtos.ResponseDtos.UserResponseDto;
 import com.example.bookmyshow.Models.User;
 import com.example.bookmyshow.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,59 +12,41 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-
-
     @Autowired
     UserService userService;
 
-
-
     @PostMapping("/add")
-    public String adduser(@RequestBody AddUserDto user) {
-        try {
-            String result = userService.add(user);
+    public String addUser(@RequestBody AddUserDto user){
+
+        try{
+            String result = userService.addUser(user);
             return result;
-        } catch (Exception e) {
+        }catch (Exception e){
             return e.getMessage();
         }
     }
 
     //Get oldest User Object by age
     @GetMapping("/getOlderUser")
-    public UserResponseDto getOldest(){
+    public UserResponseDto getOldestUser(){
 
-     try{
-         UserResponseDto userResponseDto= userService.getoldest();
-         userResponseDto.setStatusCode("200");
-         userResponseDto.setStatusMessage("SUCCESS");
-         return userResponseDto;
+        try{
+            UserResponseDto userResponseDto = userService.getOldestUser();
 
-     }catch (Exception e){
-         UserResponseDto responseDto = new UserResponseDto();
-         responseDto.setStatusCode("500");
-         responseDto.setStatusMessage("Failure");
-         return responseDto;
-     }
+            userResponseDto.setStatusCode("200");
+            userResponseDto.setStatusMessage("SUCCESS");
+            return userResponseDto;
 
-
+        }catch (Exception e){
+            UserResponseDto responseDto = new UserResponseDto();
+            responseDto.setStatusCode("500");
+            responseDto.setStatusMessage("Failure");
+            return responseDto;
+        }
     }
+
     @GetMapping("/findUsersGreaterThanAAge")
-    public List<User> getAllUsers(@RequestParam("age") Integer age){
+    public List<User> getAllUsers(@RequestParam("age")Integer age){
         return userService.getAllUserGreaterThan(age);
     }
-
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
+}

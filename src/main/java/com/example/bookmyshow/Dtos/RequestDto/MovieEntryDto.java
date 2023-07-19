@@ -1,4 +1,4 @@
-package com.example.bookmyshow.DTOs.RequestDto;
+package com.example.bookmyshow.Dtos.RequestDto;
 
 import com.example.bookmyshow.Enums.Genre;
 import com.example.bookmyshow.Enums.Language;

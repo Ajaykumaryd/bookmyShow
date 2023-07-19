@@ -9,8 +9,6 @@ import lombok.Data;
 @Table(name = "theater_seats")
 @Data
 public class TheaterSeat {
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

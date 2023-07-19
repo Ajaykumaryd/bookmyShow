@@ -1,4 +1,5 @@
-package com.example.bookmyshow.DTOs.RequestDto;
+package com.example.bookmyshow.Dtos.RequestDto;
+
 
 import lombok.Data;
 
