@@ -80,11 +80,12 @@ public class ShowService {
                 showSeat.setPrice(showSeatsDto.getPriceForClassicSeats());
             else
                 showSeat.setPrice(showSeatsDto.getPriceForPremiumSeats());
+
             //Foreign key mapping
-            showSeat.setShow(show);
             showSeat.setAvailable(true);
             showSeat.setFoodAttached(false);
             showSeatList.add(showSeat);
+            showSeat.setShow(show);
         }
         showRepository.save(show);
         //Child will automatically get saved.....
