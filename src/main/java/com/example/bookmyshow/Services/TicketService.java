@@ -11,6 +11,7 @@ import com.example.bookmyshow.Models.User;
 import com.example.bookmyshow.Repository.ShowRepository;
 import com.example.bookmyshow.Repository.TicketRepository;
 import com.example.bookmyshow.Repository.UserRepository;
+import com.example.bookmyshow.Transformers.TicketTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -74,7 +75,7 @@ public class TicketService {
         show.getTicketList().add(ticket);
         showRepository.save(show);
 
-
+         TicketResponseDto ticketResponseDto= TicketTransformer.createTicketResponseDto(show,ticket);
     }
 
     String convertListToString(List<String> seats){
