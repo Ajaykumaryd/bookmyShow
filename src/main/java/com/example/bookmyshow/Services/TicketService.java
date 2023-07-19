@@ -37,8 +37,6 @@ public class TicketService {
             throw new NoUserFoundException("User is not found");
         }
 
-
-
         int showId=ticketRequestDto.getShowId();
         Optional<Show> showOptional=showRepository.findById(showId);
 
@@ -111,6 +109,12 @@ public class TicketService {
       }
      return true;
     }
+
+
+
+
+
+
 
 
 

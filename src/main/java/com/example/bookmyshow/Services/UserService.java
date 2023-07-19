@@ -38,6 +38,7 @@ public class UserService {
         if (userAns==null){
             throw new NoUserFoundException("User is not present");
         }
+
         UserResponseDto userResponseDto = UserTransformer.convertEntityToDto(userAns);
         return userResponseDto;
     }
