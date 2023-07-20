@@ -22,17 +22,14 @@ public class ShowController {
         }catch (Exception e){
             return e.getMessage();
         }
-
     }
 
     @PostMapping("/associate-seats")
     public String associateSeats(@RequestBody ShowSeatsDto showSeatsDto){
-
         try{
             return showService.associateShowSeats(showSeatsDto);
         }catch (Exception e){
             return e.getMessage();
         }
-
     }
 }

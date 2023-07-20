@@ -22,11 +22,9 @@ public class TicketController {
 
     @PostMapping("/book-ticket")
     public ResponseEntity<TicketResponseDto> bookTicket(@RequestBody TicketRequestDto ticketRequestDto){
-
         try{
             TicketResponseDto response =  ticketService.bookTicket(ticketRequestDto);
             response.setResponseMessage("Ticket booked successfully");
-
             return new ResponseEntity<>(response, HttpStatus.OK);
         }catch (Exception e){
             TicketResponseDto ticketResponseDto = new TicketResponseDto();
@@ -34,5 +32,8 @@ public class TicketController {
             return new ResponseEntity<>(ticketResponseDto,HttpStatus.BAD_REQUEST);
         }
     }
+
+
+
 
 }

@@ -13,6 +13,7 @@ import com.example.bookmyshow.Repository.ShowRepository;
 import com.example.bookmyshow.Repository.TicketRepository;
 import com.example.bookmyshow.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -84,6 +85,21 @@ public class TicketService {
         show.getTicketList().add(ticket);
 
         showRepository.save(show);
+
+        SimpleMailMessage simpleMailMessage=new SimpleMailMessage();
+
+        String body="Hi"+user.getName()+" ! /n "+
+             "You have successfully booked a ticket. Please find the following details No's"+ bookedSeats
+              +"movie Name"+ show.getMovie().getMovieName()
+              +"show Date is"+show.getDate()+
+              "And show time is "+show.getTime()+
+              "Enjoy the show!!! "+show.getTime()+
+              "Enjoy the show !!!";
+
+        simpleMailMessage.setSubject("Ticket confirmation Mail");
+        simpleMailMessage.setFrom("aimofficer1963@gmail.com");
+        simpleMailMessage.setText(body);
+        simpleMailMessage.setTo(user.getEmail());
 
         return createTicketReponseDto(show,ticket);
     }
