@@ -106,17 +106,14 @@ public class TicketService {
     private boolean validateShowAvailability(Show show, List<String> requestedSeats){
 
         List<ShowSeat> showSeatList = show.getShowSeatList();
-
         for(ShowSeat showSeat : showSeatList){
             String seatNo = showSeat.getSeatNo();
             if(requestedSeats.contains(seatNo)){
-
                 if(showSeat.isAvailable()==false)
                     return false;
             }
         }
         return true;
-
     }
 
 

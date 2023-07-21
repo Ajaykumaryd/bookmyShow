@@ -17,7 +17,6 @@ public class UserController {
 
     @PostMapping("/add")
     public String addUser(@RequestBody AddUserDto user){
-
         try{
             String result = userService.addUser(user);
             return result;
@@ -29,14 +28,11 @@ public class UserController {
     //Get oldest User Object by age
     @GetMapping("/getOlderUser")
     public UserResponseDto getOldestUser(){
-
         try{
             UserResponseDto userResponseDto = userService.getOldestUser();
-
             userResponseDto.setStatusCode("200");
             userResponseDto.setStatusMessage("SUCCESS");
             return userResponseDto;
-
         }catch (Exception e){
             UserResponseDto responseDto = new UserResponseDto();
             responseDto.setStatusCode("500");

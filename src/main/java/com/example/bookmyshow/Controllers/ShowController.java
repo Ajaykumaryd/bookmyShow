@@ -4,10 +4,7 @@ import com.example.bookmyshow.Dtos.RequestDto.AddShowDto;
 import com.example.bookmyshow.Dtos.RequestDto.ShowSeatsDto;
 import com.example.bookmyshow.Services.ShowService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/show")
@@ -32,4 +29,10 @@ public class ShowController {
             return e.getMessage();
         }
     }
+
+    @GetMapping("/most-recommended-movie-name")
+    public String getMovieName(AddShowDto addShowDto){
+        return showService.getMovieName(addShowDto);
+    }
+
 }

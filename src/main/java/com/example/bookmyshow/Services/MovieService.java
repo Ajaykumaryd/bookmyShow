@@ -15,9 +15,8 @@ public class MovieService {
     public String addMovie(MovieEntryDto movieEntryDto){
 
         Movie movie = MovieTransformer.convertDtoToEntity(movieEntryDto);
-
         movieRepository.save(movie);
-
         return "Movie added successfully";
+
     }
 }

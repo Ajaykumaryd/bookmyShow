@@ -30,9 +30,7 @@ public class TheaterServices {
     public String addTheaterSeats(TheaterSeatsEntryDto theaterSeatsEntryDto){
 
         //We need to save the TheaterSeat Entity
-
         int columns = theaterSeatsEntryDto.getNoOfSeatsIn1Row();
-
         int noOfClassicSeats = theaterSeatsEntryDto.getNofOfClassicSeats();
         int noOfPremiumSeats = theaterSeatsEntryDto.getNoOfPremiumSeats();
 
@@ -43,7 +41,6 @@ public class TheaterServices {
         List<TheaterSeat> theaterSeatList = theater.getTheaterSeatList();
 
         System.out.println("The value of noOfPremium Seats"+noOfPremiumSeats);
-
 
         int counter = 1;
         char ch = 'A';
@@ -60,8 +57,6 @@ public class TheaterServices {
                 ch = 'A';
                 counter++;
             }
-
-
             TheaterSeat theaterSeat = new TheaterSeat();
             theaterSeat.setSeatNo(seatNo);
             theaterSeat.setTheater(theater); //storing parent info in child
@@ -74,7 +69,6 @@ public class TheaterServices {
 
         //Lets to the same for the premium seats
         for(int count=1;count<=noOfPremiumSeats;count++){
-
             String seatNo = counter+"";
             seatNo = seatNo + ch;
             ch++;
@@ -82,17 +76,13 @@ public class TheaterServices {
                 ch = 'A';
                 counter++;
             }
-
             TheaterSeat theaterSeat = new TheaterSeat();
             theaterSeat.setTheater(theater);
             theaterSeat.setSeatType(SeatType.PREMIUM);
             theaterSeat.setSeatNo(seatNo);
-
             //This is the bidirectional mapping...storing the child entity
             //in the parent entity
-
             System.out.println("The seatNo is "+seatNo);
-
             theaterSeatList.add(theaterSeat);
         }
         //We just need to save the parent : theater Entity

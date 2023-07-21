@@ -111,4 +111,12 @@ public class ShowService {
         return "Show seats has been successfully added";
 
     }
+
+    public String getMovieName(AddShowDto showDto) {
+
+        Integer movieId = showRepository.getMostShowedMovie(showDto.getShowDate());
+        Movie movie = movieRepository.findById(movieId).get();
+        return movie.getMovieName();
+
+    }
 }
