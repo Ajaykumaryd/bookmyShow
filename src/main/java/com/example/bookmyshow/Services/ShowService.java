@@ -31,12 +31,14 @@ public class ShowService {
     public String addShow(AddShowDto showDto)throws TheaterNotFound, MovieNotFound {
 
         Show show = ShowTransformer.convertDtoToEntity(showDto);
+
         //Set the movie and theater entity
         Optional<Movie> movieOptional = movieRepository.findById(showDto.getMovieId());
 
         if(!movieOptional.isPresent()){
             throw new MovieNotFound("Movie is not found");
         }
+
         Optional<Theater> theaterOptional = theaterRepository.findById(showDto.getTheaterId());
 
         if(!theaterOptional.isPresent()){

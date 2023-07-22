@@ -10,10 +10,8 @@ import java.util.Date;
 public class AddShowDto {
 
     private LocalTime showStartTime;
-
     private Date showDate;
-
     private int theaterId;
-
     private int movieId;
+
 }

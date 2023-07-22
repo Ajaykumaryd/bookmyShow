@@ -5,6 +5,8 @@ import com.example.bookmyshow.Dtos.ResponseDtos.UserResponseDto;
 import com.example.bookmyshow.Models.User;
 import com.example.bookmyshow.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,28 +18,28 @@ public class UserController {
     UserService userService;
 
     @PostMapping("/add")
-    public String addUser(@RequestBody AddUserDto user){
+    public ResponseEntity<String> addUser(@RequestBody AddUserDto user){
         try{
             String result = userService.addUser(user);
-            return result;
+            return new ResponseEntity<>(result, HttpStatus.CREATED);
         }catch (Exception e){
-            return e.getMessage();
+            return new ResponseEntity<>(e.getMessage(),HttpStatus.BAD_REQUEST);
         }
     }
 
     //Get oldest User Object by age
     @GetMapping("/getOlderUser")
-    public UserResponseDto getOldestUser(){
+    public ResponseEntity<UserResponseDto> getOldestUser(){
         try{
             UserResponseDto userResponseDto = userService.getOldestUser();
             userResponseDto.setStatusCode("200");
             userResponseDto.setStatusMessage("SUCCESS");
-            return userResponseDto;
+            return new ResponseEntity<>(userResponseDto,HttpStatus.CREATED);
         }catch (Exception e){
             UserResponseDto responseDto = new UserResponseDto();
             responseDto.setStatusCode("500");
             responseDto.setStatusMessage("Failure");
-            return responseDto;
+            return new ResponseEntity<>(responseDto,HttpStatus.BAD_REQUEST);
         }
     }
 

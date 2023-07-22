@@ -118,24 +118,18 @@ public class TicketService {
 
 
     private int calculateTotalPrice(Show show, List<String> requestedSeats){
-
         int totalPrice = 0;
-
         List<ShowSeat> showSeatList = show.getShowSeatList();
-
         for(ShowSeat showSeat : showSeatList){
-
             if(requestedSeats.contains(showSeat.getSeatNo())){
                 totalPrice = totalPrice + showSeat.getPrice();
                 showSeat.setAvailable(false);
             }
         }
-
         return totalPrice;
     }
 
     String convertListToString(List<String> seats){
-
         String result = "";
         for(String seatNo : seats){
             result = result + seatNo+", ";
@@ -144,7 +138,6 @@ public class TicketService {
     }
 
     private TicketResponseDto createTicketReponseDto(Show show, Ticket ticket){
-
         TicketResponseDto ticketResponseDto = TicketResponseDto.builder()
                 .bookedSeats(ticket.getBookedSeats())
                 .location(show.getTheater().getLocation())
@@ -154,7 +147,6 @@ public class TicketService {
                 .showTime(show.getTime())
                 .totalPrice(ticket.getTotalTicketsPrice())
                 .build();
-
         return ticketResponseDto;
     }
 }
