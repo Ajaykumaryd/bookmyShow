@@ -44,7 +44,8 @@ public class UserController {
     }
 
     @GetMapping("/findUsersGreaterThanAAge")
-    public List<User> getAllUsers(@RequestParam("age")Integer age){
-        return userService.getAllUserGreaterThan(age);
+    public ResponseEntity<List<User>> getAllUsers(@RequestParam("age")Integer age){
+       List<User> user=userService.getAllUserGreaterThan(age);
+       return new ResponseEntity<>(user,HttpStatus.CREATED);
     }
 }

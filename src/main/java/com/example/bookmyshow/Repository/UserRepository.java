@@ -11,4 +11,6 @@ public interface UserRepository extends JpaRepository<User,Integer> {
     List<User> findUserWithAgeGreater(Integer value);
     //This is a custom function that you have defined
     //You need to write a query on top of this
+
+    User findByEmailId(String emailId);
 }
