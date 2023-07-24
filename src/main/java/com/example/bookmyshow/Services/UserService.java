@@ -3,7 +3,6 @@ package com.example.bookmyshow.Services;
 import com.example.bookmyshow.Dtos.RequestDto.AddUserDto;
 import com.example.bookmyshow.Dtos.ResponseDtos.UserResponseDto;
 import com.example.bookmyshow.Exception.NoUserFoundException;
-import com.example.bookmyshow.Exception.UserAlreadyExistsWithEmail;
 import com.example.bookmyshow.Models.User;
 import com.example.bookmyshow.Repository.UserRepository;
 import com.example.bookmyshow.Transformers.UserTransformer;
@@ -17,12 +16,7 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    public String addUser(AddUserDto userDto) throws UserAlreadyExistsWithEmail {
-
-        if(userRepository.findByEmailId(userDto.getEmailId()) != null) {
-            throw new UserAlreadyExistsWithEmail("User Already Exists");
-        }
-
+    public String addUser(AddUserDto userDto)  {
         User user = UserTransformer.convertDtoToEntity(userDto);
         userRepository.save(user);
         return "User has been added successfully ";
