@@ -18,4 +18,9 @@ public class UserResponseDto {
     private String statusCode;
     private String statusMessage;
 
+    public void setStatusCode(String number) {
+    }
+
+    public void setStatusMessage(String success) {
+    }
 }

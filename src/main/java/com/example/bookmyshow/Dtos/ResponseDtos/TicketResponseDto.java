@@ -29,4 +29,7 @@ public class TicketResponseDto {
     private String location;
 
     private int totalPrice;
+
+    public void setResponseMessage(String message) {
+    }
 }
