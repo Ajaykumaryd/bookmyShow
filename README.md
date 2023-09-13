@@ -21,11 +21,11 @@ This project is a Spring Boot implementation of the backend APIs for a ticket bo
 
 ## Project Working FlowChart
 
-![BMSflowchart.jpg](D:\SpringBootProject\bookmyShow\bookmyShow-master\src\main\java\com\example\bookmyshow\Images\BMSflowchart.jpg)
+![BMSflowchart.jpg](src/main/java/com/example/bookmyshow/Images/BMSflowchart.jpg)
 
 ## Swagger-ui Screen Shot
 
-![Book-my-show API's.png](D:\SpringBootProject\bookmyShow\bookmyShow-master\src\main\java\com\example\bookmyshow\Images\Apis.png)
+![Book-my-show API's.png](src/main/java/com/example/bookmyshow/Images/Apis.png)
 ## Getting Started
 To set up the project on your local machine, follow these steps:
 
