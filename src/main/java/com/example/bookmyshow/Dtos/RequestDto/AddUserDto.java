@@ -8,4 +8,6 @@ public class AddUserDto{
     private Integer age;
     private String mobNo;
     private String emailId;
+
+
 }
