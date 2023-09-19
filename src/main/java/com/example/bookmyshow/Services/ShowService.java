@@ -13,6 +13,7 @@ import com.example.bookmyshow.Repository.TheaterRepository;
 import com.example.bookmyshow.Transformers.ShowTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 import java.util.Optional;
@@ -53,17 +54,20 @@ public class ShowService {
         show.setMovie(movie);
         show.setTheater(theater);
 
+
         show = showRepository.save(show);
+
+
 
         movie.getShowList().add(show);
         movieRepository.save(movie);
 
         theater.getShowList().add(show);
-
         theaterRepository.save(theater);
 
         return "Show has been added and showId is "+show.getId();
     }
+
 
     public String associateShowSeats(ShowSeatsDto showSeatsDto)throws ShowNotFound {
 
@@ -91,7 +95,6 @@ public class ShowService {
         for(TheaterSeat theaterSeat : theaterSeatList){
 
             ShowSeat showSeat = new ShowSeat();
-
             showSeat.setSeatNo(theaterSeat.getSeatNo());
             showSeat.setSeatType(theaterSeat.getSeatType());
 
@@ -99,7 +102,6 @@ public class ShowService {
                 showSeat.setPrice(showSeatsDto.getPriceForClassicSeats());
             else
                 showSeat.setPrice(showSeatsDto.getPriceForPremiumSeats());
-
             //Foreign key mapping
             showSeat.setShow(show);
             showSeat.setAvailable(true);
@@ -107,11 +109,11 @@ public class ShowService {
 
             showSeatList.add(showSeat);
         }
+
+
         showRepository.save(show);
         //Child will automatically get saved.....
-
         return "Show seats has been successfully added";
-
     }
 
     public String getMovieName(AddShowDto showDto) {

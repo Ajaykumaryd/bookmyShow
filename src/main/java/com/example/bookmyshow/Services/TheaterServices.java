@@ -85,6 +85,7 @@ public class TheaterServices {
             System.out.println("The seatNo is "+seatNo);
             theaterSeatList.add(theaterSeat);
         }
+
         //We just need to save the parent : theater Entity
         //child will automatically get saved bcz of bidirectional mapping
         theaterRepository.save(theater);

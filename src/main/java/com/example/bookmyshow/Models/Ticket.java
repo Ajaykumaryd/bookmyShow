@@ -19,6 +19,7 @@ public class Ticket {
 
     private String bookedSeats;
 
+
     @CreationTimestamp
     private Date bookedAt;
 
@@ -27,8 +28,8 @@ public class Ticket {
     @JoinColumn
     private Show show;
 
-
     @ManyToOne
     @JoinColumn
     private User user;
+
 }
