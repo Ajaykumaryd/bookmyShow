@@ -38,14 +38,14 @@ public class TicketService {
         //User validation
         int userId = ticketRequestDto.getUserId();
         Optional<User> userOptional = userRepository.findById(userId);
-        if(!userOptional.isPresent()){
+        if(userOptional.isEmpty()){
             throw new NoUserFoundException("User Id is incorrect");
         }
 
         //Show Validation
         int showId = ticketRequestDto.getShowId();
         Optional<Show> showOptional = showRepository.findById(showId);
-        if(!showOptional.isPresent()){
+        if(showOptional.isEmpty()){
             throw new ShowNotFound("Show is not found");
         }
         Show show = showOptional.get();
@@ -53,7 +53,7 @@ public class TicketService {
         //Validation for the requested Seats are available or not
         boolean isValid = validateShowAvailability(show,ticketRequestDto.getRequestedSeats());
 
-        if(isValid==false){
+        if(!isValid){
             throw new Exception("Requested Seats entered are not available");
         }
 
