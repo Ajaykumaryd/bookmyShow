@@ -20,12 +20,12 @@ This project is a Spring Boot implementation of the backend APIs for a ticket bo
 * **SMTP Server (for sending email notifications)**
 
 ## Project Working FlowChart
+![BMSflowchart](https://github.com/Ajaykumaryd/bookmyShow/assets/127691663/d821bca9-e553-4957-bdfa-ef8907c8b1d4)
 
-![BMSflowchart.jpg](src/main/java/com/example/bookmyshow/Images/BMSflowchart.jpg)
 
 ## Swagger-ui Screen Shot
+![Apis](https://github.com/Ajaykumaryd/bookmyShow/assets/127691663/86114b7b-b2ca-46ce-b809-3e9b25785d16)
 
-![Book-my-show API's.png](src/main/java/com/example/bookmyshow/Images/Apis.png)
 ## Getting Started
 To set up the project on your local machine, follow these steps:
 
