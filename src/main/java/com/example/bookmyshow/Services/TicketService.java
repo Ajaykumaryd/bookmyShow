@@ -48,6 +48,7 @@ public class TicketService {
         if(showOptional.isEmpty()){
             throw new ShowNotFound("Show is not found");
         }
+
         Show show = showOptional.get();
 
         //Validation for the requested Seats are available or not

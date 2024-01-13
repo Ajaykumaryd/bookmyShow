@@ -13,7 +13,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "movies")
+@Table(name ="movies")
 @Data
 @Builder
 @AllArgsConstructor

@@ -25,7 +25,6 @@ public class MovieService {
 
     public String addMovie(MovieEntryDto movieEntryDto) throws MovieAlreadyPresentWithSameNameAndLanguage {
 
-
         Optional<Movie> movieOptional= Optional.ofNullable(movieRepository.findByMovieName(movieEntryDto.getMovieName()));
         if(movieOptional.isPresent()){
             throw new MovieAlreadyPresentWithSameNameAndLanguage("Movie is Already present by same name");
@@ -35,11 +34,9 @@ public class MovieService {
 //                throw new MovieAlreadyPresentWithSameNameAndLanguage("Movie is Already present by same name");
 //            }
 //        }
-
         Movie movie = MovieTransformer.convertDtoToEntity(movieEntryDto);
         movieRepository.save(movie);
         return "Movie added successfully";
-
     }
 
     public Long totalCollection(Integer movieId) throws MovieNotFound{

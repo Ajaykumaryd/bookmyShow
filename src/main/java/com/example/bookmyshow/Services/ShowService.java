@@ -49,20 +49,17 @@ public class ShowService {
         Movie movie = movieOptional.get();
         Theater theater = theaterOptional.get();
 
-
-        //Setting the foreign
         show.setMovie(movie);
         show.setTheater(theater);
 
-
+        //we save show here so that we can avoid saving showing two times
         show = showRepository.save(show);
 
-
-
         movie.getShowList().add(show);
+        theater.getShowList().add(show);
+
         movieRepository.save(movie);
 
-        theater.getShowList().add(show);
         theaterRepository.save(theater);
 
         return "Show has been added and showId is "+show.getId();
@@ -80,7 +77,6 @@ public class ShowService {
 
         //Valid Show Now
         Show show = optionalShow.get();
-
 
 
         //We need to theaterSeats
